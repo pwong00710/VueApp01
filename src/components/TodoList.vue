@@ -4,7 +4,7 @@
     {{ this.$store.state }}
     -->
     <ul>
-      <li v-for="t in todos" v-bind:class="{completed: t.completed}" v-on:click="toggleTodo(t.id)">{{t.task}}</li>
+      <li v-for="t in todos" v-bind:class="{completed: t.completed}" v-on:click="toggleTodo(t.id)" v-on:dblclick="deleteTodo(t.id)">{{t.task}}</li>
     </ul>
   </div>
 </template>
@@ -23,6 +23,9 @@ export default {
   methods: {
     toggleTodo: function (id) {
       this.$store.commit('toggleTodo', id)
+    },
+    deleteTodo: function (id) {
+      this.$store.commit('deleteTodo', id)
     }
   }
 }

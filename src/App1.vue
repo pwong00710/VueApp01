@@ -76,6 +76,11 @@ const store = new Vuex.Store({
         }
         return t
       })
+    },
+    deleteTodo: (state, payload) => {
+      const index = state.todos.findIndex(t => t.id === payload)
+      state.todos.splice(index, 1)
+      console.log(index)
     }
   }
 })
